@@ -1,0 +1,214 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+
+<link rel="import" href="./potato-menu.html">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:200" rel="stylesheet">
+
+<dom-module id="text-a-potato-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+      .head,
+      potato-menu,
+      .container {
+        width: 800px;
+        margin: 0 auto;
+      }
+      
+      h1 {
+        font-family: 'Amatic SC', cursive;
+        font-size: 100px;
+        letter-spacing: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+      }
+      
+      .logo-potato {
+        height: 100%;
+      }
+      
+      h2 {
+        font-size: 36px;
+        font-family: 'Roboto Mono', monospace;
+        color: #605E5E;
+      }
+      
+      button {
+        background: rgba(96, 94, 94, 1);
+        padding: 16px;
+        font-family: 'Amatic SC', cursive;
+        font-size: 30px;
+        text-transform: uppercase;
+        border: none;
+        color: white;
+        letter-spacing: 5px;
+      }
+      
+      .arrow-right {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 5px solid rgba(96, 94, 94, 1);
+      }
+      
+      .paragraph {
+        background: rgba(114, 114, 114, 1);
+        cursor: pointer !important;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        color: white;
+        padding: 8px;
+        transition: all 0.33s ease-in-out;
+      }
+      
+      .paragraph:hover {
+        color: rgba(114, 114, 114, 1);
+        background: #ccc;
+      }
+      
+      .para2 {
+        text-align: right;
+        color: rgba(114, 114, 114, 1);
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        padding: 8px;
+      }
+      
+      .potato-container {
+        width: 250px;
+        height: 250px;
+        border-radius: 125px;
+        overflow: hidden;
+        border: 2px solid #333;
+      }
+      
+      .potato-container img {
+        width: 100%;
+      }
+    </style>
+
+    <potato-menu></potato-menu>
+
+    <div class="head">
+
+      <div>
+        <h1>TEXT-A-P
+          <img class="logo-potato" src="../assets/logo-potato.jpg"></img>TATO</h1>
+      </div>
+
+      <div style="display: flex; align-items: center">
+        <div>
+
+          <img class="big-potato" src="../assets/big-potato.jpg"></img>
+
+
+        </div>
+        <div>
+
+          <h2>SEND A <br>MESSAGE. <br>ON A POTATO.</h2>
+          <div style="display: flex; cursor: pointer;">
+            <button style="cursor: pointer;">Buy Now</button>
+            <div>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+              <span class="arrow-right"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <br>
+      <div class="paragraph">Stuck for a gift idea? Potato. Bad break up? Potato. Proposal? Potato.</div>
+      <div class="paragraph">Someone's leaving the office? Potato. Want to creep your friends out? Potato.</div>
+      <div class="para2">This is anonymous and totally hillarious</div>
+
+    </div>
+
+    <br>
+    <br>
+    <br><br><br><br>I
+
+
+    <div class="container">
+      <div class="potato-container" style="">
+        <img src="../assets/p1.jpg">
+      </div>
+      <div class="potato-container" style=" position: absolute;
+    margin-left: 275px;
+    margin-top: -300px;">
+        <img src="../assets/p2.jpg">
+      </div>
+      <div class="potato-container" style="position: absolute;
+    margin-left: 550px;
+    margin-top: -250px;">
+        <img src="../assets/p3.jpg">
+      </div>
+
+
+      <div style="align-items: center; display: flex; justify-content: center; margin-top: 0px; padding-bottom: 50px;">
+        <div style="display: flex; cursor: pointer;">
+          <button style="cursor: pointer;">Buy Now</button>
+          <div>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+            <span class="arrow-right"></span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="potato-container" style=" position: absolute;
+    margin-left: 550px;
+    margin-top: -70px;">
+        <img src="../assets/p4.jpg">
+      </div>
+      <div class="potato-container" style="position: absolute;
+    margin-left: 275px;
+    margin-top: 0px;">
+        <img src="../assets/p5.jpg">
+      </div>
+      <div class="potato-container" style=" position: absolute;
+    margin-left: 0;
+    margin-top: -70px;">
+        <img src="../assets/p6.jpg">
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'text-a-potato-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'text-a-potato-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

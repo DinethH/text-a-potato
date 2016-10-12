@@ -1,0 +1,110 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="potato-menu">
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 800px;
+            }
+            
+            ul li {
+                list-style-type: none;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            ul {
+                display: flex;
+                justify-content: center;
+            }
+            
+            li {
+                padding: 8px;
+                text-transform: uppercase;
+                font-size: 27px;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
+                width: 120px;
+                text-align: center;
+                color: rgba(52, 34, 22, 1);
+                transition: all 0.33s ease-in-out;
+                border-bottom: 1px solid rgba(52, 34, 22, 1);
+            }
+            
+            li:hover {
+                background-color: rgba(52, 34, 22, 1);
+                color: white;
+            }
+            
+            li.active {
+                background-color: rgba(52, 34, 22, 1);
+                color: white;
+            }
+            
+            .active+span {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-top: 10px solid rgba(52, 34, 22, 1);
+                margin: 0 auto;
+            }
+            .border-faker {
+                display: block;
+                border-bottom: 1px solid rgba(52, 34, 22, 1);
+                width: 50px;
+                margin-bottom: 10px;
+            }
+        </style>
+        <menu>
+            <ul>
+                <a href="">
+                    <li class="active">Text-a-potato</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>Please explain</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>Send a potato</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>Examples</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>FAQs</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>Contact</li>
+                    <span></span>
+                </a>
+                <a href="">
+                    <li>Shop</li>
+                    <span></span>
+                </a>
+            </ul>
+        </menu>
+
+    </template>
+
+    <script>
+    Polymer({
+
+      is: 'potato-menu',
+
+      properties: {
+
+      },
+
+    });
+  </script>
+</dom-module>
