@@ -1,4 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
 <dom-module id="potato-menu">
     <template>
@@ -73,6 +75,9 @@
                 width: 50px;
                 margin-bottom: 10px;
             }
+            #toggleMenuButton {
+              transition: all 0.33s ease-in-out 0.33s;
+            }
             @media (min-width: 768px) {
               ul {
                   display: flex;
@@ -94,11 +99,29 @@
               nav {
                 border-bottom: 1px solid rgba(52, 34, 22, 1);
               }
+              .close-button, #toggleMenuButton {
+                display: none;
+              }
+              nav {
+                display: block;
+                transform: translateY(0);
+              }
+            }
+            @media (max-width: 767px) {
+              nav {
+                transform: translateY(-500px);
+                transition: transform 0.33s ease-in-out;
+              }
+            }
+            #toggleMenuButton {
+              position: absolute;
+              opacity: 1;
             }
 
-
         </style>
-        <nav>
+
+        <paper-icon-button id="toggleMenuButton" on-tap="showMenu" icon="menu" menuOpened="{{menuOpened}}"></paper-icon-button>
+        <nav id="nav">
             <ul>
                 <a href="">
                     <li class="active">Text-a-potato</li>
@@ -128,6 +151,9 @@
                     <li>Shop</li>
                     <span></span>
                 </a>
+                <a class="close-button">
+                  <paper-icon-button id="closeMenuButton" on-tap="closeMenu" icon="close"></paper-icon-button>
+                </a>
             </ul>
         </nav>
 
@@ -141,6 +167,14 @@
       properties: {
 
       },
+      showMenu: function () {
+        this.$.toggleMenuButton.style.opacity = "0";
+        this.$.nav.style.transform =  "translateY(0)";
+      },
+      closeMenu: function () {
+        this.$.toggleMenuButton.style.opacity = "1";
+        this.$.nav.style.transform =  "translateY(-500px)";
+      }
 
     });
   </script>
