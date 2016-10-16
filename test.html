@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>text-a-potato</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/manifest.json">
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/src/text-a-potato-app.html">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link rel="import" href="/bower_components/polymer/polymer.html">
+  <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+
+
+</head>
+
+<body>
+
+
+  <iron-ajax
+      auto
+      url="http://httpbin.org/get"
+      headers='{"Action": "testAction"}'
+      handle-as="json"
+      on-response="handleResponse"
+      debounce-duration="300"></iron-ajax>
+
+
+
+
+</body>
+
+</html>

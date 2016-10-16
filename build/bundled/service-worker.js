@@ -29,7 +29,7 @@
 
 
 /* eslint-disable quotes, comma-spacing */
-var PrecacheConfig = [["/index.html","5dca7fdbf13335fc9b27197c37e180cf"]];
+var PrecacheConfig = [["/assets/2bae12_0a22310596f743b6b8f05c4fcce47136.jpg","db594a4298d3f7c9a80318850b3362d0"],["/assets/2bae12_429815b6803a4daf863734b9bb79c5b7.jpg","9d134bcf2e25c3268fb635edda903c49"],["/assets/2bae12_4f302cae6c194945987bdc71f6520526.jpg","f585d026ca93cb6e2201197df2529197"],["/assets/2bae12_668ee13f2b7d4d0db9eee3825b5107bf.jpg","2062e7799272b3004bc1f1f620726929"],["/assets/2bae12_907195e02d2f46f68876de44a2977f79.jpg","38db5956390dbb6209cda60b57552d1b"],["/assets/2bae12_cb8010cbba8440159a7052ae653952ce.jpg","835b2f5593081fa6ff679036f15964b7"],["/assets/2bae12_d9620dad8e044b83bd2e80d398a552fd.jpg","1938d98db1a214b6fe5e80ee15d0f6e6"],["/assets/2bae12_e1204735ce134672b38c1ee91ad4dda0.jpg","d0f82e856c4505bdf495e9fc44a300ab"],["/assets/2bae12_e5aae70518b04d6e948dbb661e0de124.jpg","ba3d383118460002ba666c76f7874165"],["/assets/big-potato.jpg","829442c62eeeeea13bc925ddbc84646c"],["/assets/facebook.png","cf012f43e4fc6987909185294f49cbd9"],["/assets/instagram.png","8226dd9fd72ff1eae344117eba092a4f"],["/assets/logo-potato.jpg","f9156246abb1eb53b652dbdbac19bbe8"],["/assets/p1.jpg","5cc45bba771e9877dbf88fb375114f35"],["/assets/p2.jpg","53866d57aaa79e790bd85e6a62f0dec0"],["/assets/p3.jpg","1938d98db1a214b6fe5e80ee15d0f6e6"],["/assets/p4.jpg","a8c17ca553864c7b37747314b6bab7d4"],["/assets/p5.jpg","39a1853d3878aad376a99edd73aa4305"],["/assets/p6.jpg","ee2b3796c4026fc0ae753e4b4875e015"],["/assets/s1.png","96071f0750d00c8321d02bc65f30f259"],["/assets/s2.png","eab3381725d17f3ea3c76f2fbcb2d0a4"],["/index.html","4f1760d987ec0baa57f473e722ec51d1"],["/src/potato-home.html","a36e696ddb8c47d882af1827b354caf8"],["/src/potato-menu.html","a1d8227de03d4e097ea1b84f0c5a551d"],["/src/text-a-potato-app.html","4967000c869e039edef3df2eaa6cf9a4"]];
 /* eslint-enable quotes, comma-spacing */
 var CacheNamePrefix = 'sw-precache-v1--' + (self.registration ? self.registration.scope : '') + '-';
 
@@ -216,7 +216,7 @@ self.addEventListener('fetch', function(event) {
       cacheName = AbsoluteUrlToCacheName[urlWithoutIgnoredParameters];
     }
 
-    var navigateFallback = '';
+    var navigateFallback = '/index.html';
     // Ideally, this would check for event.request.mode === 'navigate', but that is not widely
     // supported yet:
     // https://code.google.com/p/chromium/issues/detail?id=540967

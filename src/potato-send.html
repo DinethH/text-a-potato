@@ -1,0 +1,171 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="potato-send">
+	<template>
+		<style>
+			:host {
+				display: block;
+				margin-top: 32px;
+			}
+			
+			h3 {
+				font-size: 36px;
+				font-family: Arial;
+			}
+			
+			img {
+				width: 100%;
+				max-width: 400px;
+			}
+			
+			h2 {
+				font-size: 112px;
+				font-family: 'Amatic SC', cursive;
+			}
+			
+			p {
+				font-size: 22px;
+				font-family: Arial;
+				line-height: 1.5em;
+				padding-left: 24px;
+				text-align: center;
+				color: #666;
+			}
+			
+			.bullets-wrapper div+div {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+			
+			.wrapper {
+				display: flex;
+                flex-direction: row;
+			}
+			
+			.bullets-wrapper {
+				display: flex;
+				align-items: center;
+				margin: 24px;
+			}
+
+            .image-wrapper {
+                display: flex;
+                justify-content: center;
+            }
+			
+			@media (max-width: 767px) {
+				.wrapper {
+					flex-direction: column;
+				}
+                img {
+                    width: 50%;
+                    height: 50%;
+                }
+			}
+		</style>
+
+		<br><br><br>
+
+		<div style="padding: 16px;">
+			<h3>
+				HOW TO SEND A POTATO
+			</h3>
+		</div>
+
+		<br>
+
+		<div class="wrapper">
+			<div class="image-wrapper">
+				<img src="../assets/send-guy.jpg" alt="">
+			</div>
+			<div>
+				<br>
+				<div class="bullets-wrapper">
+					<div>
+						<h2>
+							1
+						</h2>
+					</div>
+					<div>
+						<p>
+							SMS 'POTATO' to 68899 OR purchase directly <br> through the 'SHOP' tab on this website
+						</p>
+					</div>
+				</div>
+				<div class="bullets-wrapper">
+					<div>
+						<h2>
+							2
+						</h2>
+					</div>
+					<div>
+						<p>
+							If ordering via text, you will receive a free text <br> from 'TEXT-A-POTATO' confirming your order <br> and will be
+							sent a payment link
+
+						</p>
+					</div>
+				</div>
+				<div class="bullets-wrapper">
+					<div>
+						<h2>
+							3
+						</h2>
+					</div>
+					<div>
+						<p>
+							During the checkout phase, you will be asked <br> to imput your potato message and the <br> receiver's shipping address
+
+						</p>
+					</div>
+				</div>
+				<div class="bullets-wrapper">
+					<div>
+						<h2>
+							4
+						</h2>
+					</div>
+					<div>
+						<p>
+							Your potato gift will be posted in our spudrific <br> packaging.
+
+						</p>
+					</div>
+				</div>
+				<div class="bullets-wrapper">
+					<div>
+						<h2>
+							5
+						</h2>
+					</div>
+					<div>
+						<p>
+							Your potato gift will be received within 1- <br> 5 business days (within the United Kingdom). <br> You can choose
+							either 1st or 2nd Class Mail. <br>*Provided the world doesn't end or Royal Mail doesn't <br> throw a tantrum*
+
+						</p>
+
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="bullets-wrapper">
+					<div>
+
+					</div>
+					<div>
+						<p>Bask in your hilarity</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</template>
+	<script>
+        Polymer({
+            is: 'potato-send'
+        });
+    </script>
+</dom-module>

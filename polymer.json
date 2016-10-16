@@ -1,0 +1,11 @@
+{
+    "entrypoint": "index.html",
+    "shell": "src/text-a-potato-app.html",
+    "fragments": [
+        "src/potato-menu.html",
+        "src/potato-home.html"
+    ],
+    "sources": [
+        "assets/**"
+    ]
+}

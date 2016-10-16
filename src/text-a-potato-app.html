@@ -1,307 +1,141 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+
+<link rel="import" href="../bower_components/app-route/app-route.html">
 
 <link rel="import" href="../bower_components/iron-image/iron-image.html">
 
 <link rel="import" href="./potato-menu.html">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,300,200,500" rel="stylesheet">
+
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-in-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/fade-out-animation.html">>
+<link rel="import" href="./potato-home.html">
+<link rel="import" href="./potato-explain.html">
+<link rel="import" href="./potato-send.html">
 
 <dom-module id="text-a-potato-app">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-      potato-menu {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .head,
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
+	<template>
+		<style>
+			:host {
+				display: block;
+				width: 100vw;
+				overflow-x: hidden;
+			}
+			
+	
+			
+			potato-menu {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			
+			.container,
+			iron-pages,
+			neon-animated-pages {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			
+			neon-animated-pages {
+				height: 100vh;
+			}
+			
+			h1 {
+				font-family: 'Amatic SC', cursive;
+				font-size: 100px;
+				letter-spacing: 5px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
+				position: relative;
+				top: 20px;
+				z-index: -1;
+			}
+			
+			@media (max-width: 767px) {
+				h1 {
+					font-size: 40px;
+				}
+			}
+		</style>
 
-      h1 {
-        font-family: 'Amatic SC', cursive;
-        font-size: 100px;
-        letter-spacing: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-      }
-
-      .logo-potato {
-        height: 100%;
-      }
-
-      h2 {
-        font-size: 36px;
-        font-family: 'Roboto Mono', monospace;
-        color: #605E5E;
-      }
-
-      button {
-        background: rgba(96, 94, 94, 1);
-        padding: 16px;
-        font-family: 'Amatic SC', cursive;
-        font-size: 30px;
-        text-transform: uppercase;
-        border: none;
-        color: white;
-        letter-spacing: 5px;
-      }
-
-      .arrow-right {
-        content: "";
-        display: block;
-        width: 0;
-        height: 0;
-        border-top: 5px solid transparent;
-        border-bottom: 5px solid transparent;
-        border-left: 5px solid rgba(96, 94, 94, 1);
-      }
-
-      .paragraph {
-        background: rgba(114, 114, 114, 1);
-        cursor: pointer !important;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
-        color: white;
-        padding: 8px;
-        transition: all 0.33s ease-in-out;
-      }
-
-      .paragraph:hover {
-        color: rgba(114, 114, 114, 1);
-        background: #ccc;
-      }
-
-      .para2 {
-        text-align: right;
-        color: rgba(114, 114, 114, 1);
-        font-family: Arial, Helvetica, sans-serif;
-        text-transform: uppercase;
-        padding: 8px;
-      }
-
-      .potato-container {
-        width: 250px;
-        height: 250px;
-        border-radius: 125px;
-        overflow: hidden;
-        border: 4px solid #333;
-      }
-
-      .potato-container img {
-        width: 100%;
-      }
-
-      .image-square{
-        border: 4px solid #333;
-        margin: 16px;
-        transition: opacity 0.33s ease-in-out;
-      }
-      .image-square:hover {
-        opacity: 0.7;
-      }
-      .container-bottom div div div {
-        width: 200px !important;
-        height: 200px !important;
-        border-radius: 100px !important;
-        overflow: hidden;
-        border: 4px solid #333;
-
-      }
-      .container-bottom div {
-        justify-content: center;
-      }
-      .bottom-wrapper {
-        margin: 8px;
-      }
-      .social-link {
-        margin: 8px;
-      }
-      button:hover {
-        background-color: rgba(0, 77, 78, 1);
-      }
-      button:hover + div .arrow-right  {
-        border-left-color : rgba(0, 77, 78, 1) !important;
-      }
-
-    </style>
-<br>
-<br>
-    <potato-menu></potato-menu>
-
-    <!-- <div class="head">
-
-      <div>
-        <h1>TEXT-A-P
-          <img class="logo-potato" src="../assets/logo-potato.jpg"></img>TATO</h1>
-      </div>
-
-      <div style="display: flex; align-items: center">
-        <div>
-
-          <img class="big-potato" src="../assets/big-potato.jpg"></img>
+		<app-location route="{{route}}"></app-location>
 
 
-        </div>
-        <div>
+		<app-route route="{{route}}" pattern="/:page" data="{{pageData}}" tail="{{subroute}}"></app-route>
 
-          <h2>SEND A <br>MESSAGE. <br>ON A POTATO.</h2>
-          <div class="buy-now-button" style="display: flex; cursor: pointer;">
-            <button style="cursor: pointer;">Buy Now</button>
-            <div>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-              <span class="arrow-right"></span>
-            </div>
-          </div>
+		<potato-menu route="{{route}}"></potato-menu>
 
-        </div>
-      </div>
+		<div class="container">
+			<div>
+				<h1>TEXT-A-P
+					<img class="logo-potato" src="../assets/logo-potato.jpg"></img>TATO
+				</h1>
+			</div>
+
+		</div>
 
 
-      <br>
-      <div class="paragraph">Stuck for a gift idea? Potato. Bad break up? Potato. Proposal? Potato.</div>
-      <div class="paragraph">Someone's leaving the office? Potato. Want to creep your friends out? Potato.</div>
-      <div class="para2">This is anonymous and totally hillarious</div>
+		<neon-animated-pages id="pages" role="main" selected="[[page]]" attr-for-selected="name" selected-attribute="visible" entry-animation="fade-in-animation"
+			exit-animation="fade-out-animation" class="flex">
+			<div name="/">
+				<potato-home></potato-home>
 
-    </div>
+			</div>
+			<div name="please-explain">
+				<potato-explain></potato-explain>
 
-    <br>
-    <br>
-    <br><br><br><br>
-
-
-    <div class="container">
-      <div class="potato-container" style="">
-        <img src="../assets/p1.jpg">
-      </div>
-      <div class="potato-container" style=" position: absolute;
-    margin-left: 275px;
-    margin-top: -300px;">
-        <img src="../assets/p2.jpg">
-      </div>
-      <div class="potato-container" style="position: absolute;
-    margin-left: 550px;
-    margin-top: -250px;">
-        <img src="../assets/p3.jpg">
-      </div>
+			</div>
+			<div name="send-a-potato">
+				<potato-send></potato-send>
+			</div>
+			<div name="examples">EXAMPLES</div>
+			<div name="faqs">FAQs</div>
+			<div name="contact">CONTACT</div>
+			<div name="shop">SHOP</div>
+		</neon-animated-pages>
 
 
-      <div style="align-items: center; display: flex; justify-content: center; margin-top: 0px; padding-bottom: 50px;">
-        <div style="display: flex; cursor: pointer;">
-          <button style="cursor: pointer; width: 200px;">Buy Now</button>
-          <div>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-            <span class="arrow-right"></span>
-          </div>
-        </div>
-      </div>
+		<br><br>
 
+	</template>
 
-      <div class="potato-container" style=" position: absolute;
-    margin-left: 550px;
-    margin-top: -70px;">
-        <img src="../assets/p4.jpg">
-      </div>
-      <div class="potato-container" style="position: absolute;
-    margin-left: 275px;
-    margin-top: 0px;">
-        <img src="../assets/p5.jpg">
-      </div>
-      <div class="potato-container" style=" position: absolute;
-    margin-left: 0;
-    margin-top: -70px;">
-        <img src="../assets/p6.jpg">
-      </div>
-    </div>
-
-    <div class="container" style="display: flex; margin-top: 300px; justify-content: center;">
-      <div>
-        <img class="image-square" src="../assets/s2.png" alt="">
-      </div>
-      <div>
-        <img class="image-square" src="../assets/s1.png" alt="">
-      </div>
-    </div>
-
-    <div class="container container-bottom">
-    <div style="display: flex">
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_668ee13f2b7d4d0db9eee3825b5107bf.jpg">
-      </div></div>
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_907195e02d2f46f68876de44a2977f79.jpg">
-      </div></div>
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_e1204735ce134672b38c1ee91ad4dda0.jpg">
-      </div></div>
-    </div>
-    <div style="display: flex; ">
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_0a22310596f743b6b8f05c4fcce47136.jpg">
-      </div></div>
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_e5aae70518b04d6e948dbb661e0de124.jpg">
-      </div></div>
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_cb8010cbba8440159a7052ae653952ce.jpg">
-      </div></div>
-      <div class="bottom-wrapper">      <div class="potato-container" style="">
-        <img src="../assets/2bae12_429815b6803a4daf863734b9bb79c5b7.jpg">
-      </div></div>
-    </div>
-    </div>
-
-    <div class="container" style="display: flex; justify-content: center;">
-      <div>
-        <img class="image-square" src="../assets/2bae12_4f302cae6c194945987bdc71f6520526.jpg" alt="">
-      </div>
-    </div>
-
-    <div class="container" style="display: flex; justify-content: center;">
-      <div>
-        <a class="social-link" href="">
-          <img src="../assets/instagram.png" alt="">
-        </a>
-      </div>
-      <div>
-        <a class="social-link" href="">
-          <img src="../assets/facebook.png" alt="">
-        </a>
-      </div>
-    </div> -->
-
-    <br><br>
-
-  </template>
-
-  <script>
+	<script>
     Polymer({
 
       is: 'text-a-potato-app',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'text-a-potato-app',
-        },
+		route: {
+			observer: '_routeChanged',
+			notify: true
+		},
+		page: {
+			type: String,
+			value: '/',
+			reflectToAttribute: true,
+			notify: true
+		}
       },
+	   attached: function () {
+        if (!this.route.path) {
+          this.set('route.path', '/');
+        }
+      },
+		_routeChanged: function() {
+			console.log(this.route.path.split('/')[1]);
+			if (this.route.path.split('/')[1]) {
+				this.page = this.route.path.split('/')[1];
+			} else {
+				this.page = '/';
+			}
+
+			
+		}
 
     });
   </script>
