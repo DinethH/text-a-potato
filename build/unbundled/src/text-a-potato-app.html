@@ -15,6 +15,9 @@
 <link rel="import" href="./potato-home.html">
 <link rel="import" href="./potato-explain.html">
 <link rel="import" href="./potato-send.html">
+<link rel="import" href="./potato-examples.html">
+<link rel="import" href="./potato-faq.html">
+<link rel="import" href="./potato-contact.html">
 
 <dom-module id="text-a-potato-app">
 	<template>
@@ -23,9 +26,8 @@
 				display: block;
 				width: 100vw;
 				overflow-x: hidden;
+				@apply(--layout-fit);
 			}
-			
-	
 			
 			potato-menu {
 				max-width: 1200px;
@@ -41,6 +43,7 @@
 			
 			neon-animated-pages {
 				height: 100vh;
+				//padding-bottom: 64px;
 			}
 			
 			h1 {
@@ -92,14 +95,19 @@
 			<div name="send-a-potato">
 				<potato-send></potato-send>
 			</div>
-			<div name="examples">EXAMPLES</div>
-			<div name="faqs">FAQs</div>
-			<div name="contact">CONTACT</div>
+			<div name="examples">
+				<potato-examples></potato-examples>
+			</div>
+			<div name="faqs">
+				<potato-faq></potato-faq>
+			</div>
+			<div name="contact">
+				<potato-contact></potato-contact>
+			</div>
 			<div name="shop">SHOP</div>
 		</neon-animated-pages>
 
 
-		<br><br>
 
 	</template>
 

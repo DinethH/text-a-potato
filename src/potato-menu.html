@@ -3,6 +3,8 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+
 
 <dom-module id="potato-menu">
 	<template>
@@ -128,6 +130,9 @@
 					transform: rotateX(-90deg);
 					position: absolute;
 				}
+				.active+span {
+					display: none;
+				}
 			}
 			
 			#toggleMenuButton {
@@ -140,6 +145,9 @@
 				width: 100%;
 			}
 		</style>
+
+		<iron-media-query query="(max-width: 767px)" query-matches="{{isPhone}}"></iron-media-query>
+
 
 		<paper-icon-button id="toggleMenuButton" on-tap="showMenu" icon="menu" menuOpened="{{menuOpened}}"></paper-icon-button>
 		<nav id="nav">
@@ -191,8 +199,14 @@
           route: {
               notify: true,
               observer: '_routeChanged'
-          }
+          },
+		  isPhone: {
+			  observer: '_isPhoneChanged'
+		  }
       },
+	  isPhoneChanged: function () {
+		if (!this.isPhone) {}  
+	  },
       ready: function () {
           //this.$.nav.style.display = "block";
       },
@@ -219,6 +233,9 @@
         this.$.shop.classList.remove("active");
         activeLi.classList.add("active");
         
+		if (this.isPhone) {
+			this.closeMenu();
+		}
 
 
       },
