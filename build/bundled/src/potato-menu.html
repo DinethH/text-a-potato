@@ -10,6 +10,8 @@
 			}
 			
 			ul a {
+				-webkit-box-flex: 1;
+				-ms-flex: 1;
 				flex: 1;
 			}
 			
@@ -20,9 +22,16 @@
 			a {
 				width: 100%;
 				color: rgba(52, 34, 22, 1);
+				-webkit-transition: all 0.33s ease-in-out;
 				transition: all 0.33s ease-in-out;
+				display: -webkit-box;
+				display: -ms-flexbox;
 				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
 				justify-content: center;
+				-webkit-box-align: end;
+				-ms-flex-align: end;
 				align-items: flex-end;
 			}
 			
@@ -34,10 +43,17 @@
 				font-weight: 700;
 				width: 100%;
 				text-align: center;
+				display: -webkit-box;
+				display: -ms-flexbox;
 				display: flex;
 				height: 100%;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
 				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
 				align-items: center;
+				-webkit-transition: all 0.33s ease-in-out;
 				transition: all 0.33s ease-in-out;
 			}
 			
@@ -70,6 +86,7 @@
 			}
 			
 			#toggleMenuButton {
+				-webkit-transition: all 0.33s ease-in-out 0.33s;
 				transition: all 0.33s ease-in-out 0.33s;
 			}
 			
@@ -79,7 +96,11 @@
 			
 			@media (min-width: 768px) {
 				ul {
+					display: -webkit-box;
+					display: -ms-flexbox;
 					display: flex;
+					-webkit-box-pack: center;
+					-ms-flex-pack: center;
 					justify-content: center;
 				}
 				li {
@@ -105,6 +126,7 @@
 				}
 				nav {
 					//display: block;
+					-webkit-transform: translateY(0);
 					transform: translateY(0);
 				}
 			}
@@ -112,13 +134,21 @@
 			@media (max-width: 767px) {
 				nav {
 					//display: none;
+					-webkit-transform: translateY(-500px);
 					transform: translateY(-500px);
+					-webkit-transition: -webkit-transform 0.33s ease-in-out;
+					transition: -webkit-transform 0.33s ease-in-out;
 					transition: transform 0.33s ease-in-out;
+					transition: transform 0.33s ease-in-out, -webkit-transform 0.33s ease-in-out;
 					width: 100%;
 					background: wheat;
+					-webkit-perspective-origin: top center;
 					perspective-origin: top center;
+					-webkit-perspective: 1000px;
 					perspective: 1000px;
+					-webkit-transform-origin: top center;
 					transform-origin: top center;
+					-webkit-transform: rotateX(-90deg);
 					transform: rotateX(-90deg);
 					position: absolute;
 				}
@@ -182,5 +212,5 @@
 	</template>
 
 
-	<script>Polymer({is:"potato-menu",properties:{route:{notify:!0,observer:"_routeChanged"}},ready:function(){},showMenu:function(){this.$.toggleMenuButton.style.opacity="0",this.$.nav.style.position="absolute",this.$.nav.style.transform="translateY(0) rotateX(0deg)"},closeMenu:function(){this.$.toggleMenuButton.style.opacity="1",this.$.nav.style.transform="translateY(-500px) rotateX(-90deg)"},setActiveClass:function(t){this.$.textAPotato.classList.remove("active"),this.$.pleaseExplain.classList.remove("active"),this.$.sendAPotato.classList.remove("active"),this.$.examples.classList.remove("active"),this.$.faqs.classList.remove("active"),this.$.contact.classList.remove("active"),this.$.shop.classList.remove("active"),t.classList.add("active"),this.isPhone&&this.closeMenu()},_routeChanged:function(){var t=this.route.path.split("/")[1];switch(t){case"":this.setActiveClass(this.$.textAPotato);break;case"please-explain":this.setActiveClass(this.$.pleaseExplain);break;case"send-a-potato":this.setActiveClass(this.$.sendAPotato);break;case"examples":this.setActiveClass(this.$.examples);break;case"faqs":this.setActiveClass(this.$.faqs);break;case"contact":this.setActiveClass(this.$.contact);break;case"shop":}}});</script>
+	<script>Polymer({is:"potato-menu",properties:{route:{notify:!0,observer:"_routeChanged"},isPhone:{observer:"_isPhoneChanged"}},isPhoneChanged:function(){!this.isPhone},ready:function(){},showMenu:function(){this.$.toggleMenuButton.style.opacity="0",this.$.nav.style.position="absolute",this.$.nav.style.transform="translateY(0) rotateX(0deg)"},closeMenu:function(){this.$.toggleMenuButton.style.opacity="1",this.$.nav.style.transform="translateY(-500px) rotateX(-90deg)"},setActiveClass:function(t){this.$.textAPotato.classList.remove("active"),this.$.pleaseExplain.classList.remove("active"),this.$.sendAPotato.classList.remove("active"),this.$.examples.classList.remove("active"),this.$.faqs.classList.remove("active"),this.$.contact.classList.remove("active"),this.$.shop.classList.remove("active"),t.classList.add("active"),this.isPhone&&this.closeMenu()},_routeChanged:function(){var t=this.route.path.split("/")[1];switch(t){case"":this.setActiveClass(this.$.textAPotato);break;case"please-explain":this.setActiveClass(this.$.pleaseExplain);break;case"send-a-potato":this.setActiveClass(this.$.sendAPotato);break;case"examples":this.setActiveClass(this.$.examples);break;case"faqs":this.setActiveClass(this.$.faqs);break;case"contact":this.setActiveClass(this.$.contact);break;case"shop":}}});</script>
 </dom-module></body></html>

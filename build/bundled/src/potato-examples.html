@@ -1,6 +1,4 @@
-<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
-
-</head><body><dom-module id="potato-examples">
+<html><head><meta charset="UTF-8"><link rel="import" href="text-a-potato-app.html"></head><body><dom-module id="potato-examples">
 	<template>
 		<style>
 			:host {
@@ -23,8 +21,13 @@
 			
 			.wrapper {
 				margin: 16px;
+				display: -webkit-box;
+				display: -ms-flexbox;
 				display: flex;
+				-ms-flex-wrap: wrap;
 				flex-wrap: wrap;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
 				justify-content: center;
 			}
 			
@@ -32,8 +35,8 @@
 				.potato-example-wrapper {
 					width: 100px;
 					height: 66px;
-                    margin: 8px;
-                    border: 2px solid #333;
+					margin: 8px;
+					border: 2px solid #333;
 				}
 				.potato-example {
 					width: 100px;

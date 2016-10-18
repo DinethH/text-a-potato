@@ -3,7 +3,12 @@
     "shell": "src/text-a-potato-app.html",
     "fragments": [
         "src/potato-menu.html",
-        "src/potato-home.html"
+        "src/potato-home.html",
+        "src/potato-contact.html",
+        "src/potato-examples.html",
+        "src/potato-explain.html",
+        "src/potato-faq.html",
+        "src/potato-send.html"
     ],
     "sources": [
         "assets/**"

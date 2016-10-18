@@ -1,0 +1,25 @@
+{
+  "name": "text-a-potato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DinethH/text-a-potatoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DinethH/text-a-potatoe/issues"
+  },
+  "homepage": "https://github.com/DinethH/text-a-potatoe#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
