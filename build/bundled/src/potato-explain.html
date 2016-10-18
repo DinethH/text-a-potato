@@ -1,0 +1,89 @@
+<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+
+</head><body><dom-module id="potato-explain">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			
+			p {
+				font-family: 'Arial';
+				font-weight: 300;
+				font-size: 20px;
+				line-height: 2em;
+				max-width: 800px;
+				margin: 0 auto;
+				margin-bottom: 24px;
+                padding: 16px;
+			}
+			
+			.container {
+				text-align: center;
+				margin-top: 48px;
+			}
+			
+			.container::before {
+				content: "";
+				display: block;
+				background: url(http://localhost:8080/assets/left.png) no-repeat;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				opacity: 0.5;
+				z-index: -1;
+			}
+			
+			.container::after {
+				content: "";
+				display: block;
+				background: url(http://localhost:8080/assets/left.png) no-repeat;
+				transform: rotate(180deg);
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				opacity: 0.5;
+				top: -200px;
+				z-index: -1;
+			}
+			
+			@media (max-width: 767px) {
+				.container::before, .container::after {
+					background-size: 50%;
+				}
+			}
+		</style>
+
+		<div class="container">
+			<p>
+				TEXT-A-POTATO will post a real, yes real potato, to anyone you like (or dislike) in the United Kingdom!
+			</p>
+			<p>
+				For £6.99 (+£2.99 for postage) we will hand write your personalised message on a potato, wrap it up in our 'spud-did' packaging
+				and post it to the requested address.
+
+			</p>
+			<p>
+				Simply text POTATO to 68899 (it's free) and follow the prompts. Otherwise you can order directly through our website under
+				the 'SHOP' menu.
+
+			</p>
+
+			<p>
+				It's the perfect gift for literally any occasion.
+				<br> You can send the potato anonymously too.
+
+			</p>
+
+			<p>Really, the only way to express your feelings is via the medium of a potato.</p>
+
+			<p>
+				THE POTATO IS A BEAUTIFUL THING
+			</p>
+
+		</div>
+
+
+	</template>
+	<script>Polymer({is:"potato-explain"});</script>
+</dom-module></body></html>
