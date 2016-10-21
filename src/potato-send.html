@@ -1,11 +1,11 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <dom-module id="potato-send">
-	<template>
+    <template>
 		<style>
 			:host {
 				display: block;
-				margin-top: 32px;
+				margin-top: 64px;
 			}
 			
 			.container {
@@ -20,7 +20,6 @@
 			img {
 				width: 100%;
 				max-width: 400px;
-				height: 100%;
 			}
 			
 			h2 {
@@ -68,15 +67,21 @@
 			}
 			
 			.image-wrapper {
-				display: -webkit-box;
-				display: -ms-flexbox;
-				display: flex;
-				-webkit-box-pack: center;
-				-ms-flex-pack: center;
-				justify-content: center;
+				display: block;
 			}
 			
 			@media (max-width: 767px) {
+				:host {
+					margin-top: 32px;
+				}
+				.image-wrapper {
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: flex;
+					-webkit-box-pack: center;
+					-ms-flex-pack: center;
+					justify-content: center;
+				}
 				.wrapper {
 					-webkit-box-orient: vertical;
 					-webkit-box-direction: normal;
@@ -90,7 +95,6 @@
 			}
 		</style>
 
-		<br><br><br>
 
 		<div class="container">
 			<div style="padding: 16px;">
@@ -99,7 +103,6 @@
 				</h3>
 			</div>
 
-			<br>
 
 			<div class="wrapper">
 				<div class="image-wrapper">
@@ -190,7 +193,7 @@
 
 		</div>
 	</template>
-	<script>
+    <script>
         Polymer({
             is: 'potato-send'
         });

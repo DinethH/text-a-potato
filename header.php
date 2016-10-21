@@ -15,25 +15,32 @@
   <?php wp_head(); ?>
 
 
+   
+
+
 </head>
 
 <body>
 
-  <link rel="import" href="<?php bloginfo('template_directory'); ?>/src/potato-menu.php">
+  <link rel="import" href="<?php bloginfo('template_directory'); ?>/bower_components/iron-media-query/iron-media-query.html">
+  <link rel="import" href="<?php bloginfo('template_directory'); ?>/bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="<?php bloginfo('template_directory'); ?>/bower_components/iron-icons/iron-icons.html">
 
+
+  <paper-icon-button id="toggleMenuButton" icon="menu" menuOpened="{{menuOpened}}"></paper-icon-button>
   <nav id="nav">
-<?php
+    <?php
 wp_nav_menu(array(
-	'theme_location' => 'primay',
-	'container' => false,
-	'menu_class' => 'navbar-nav'
-	));
+'theme_location' => 'primay',
+'container' => false,
+'menu_class' => 'navbar-nav'
+));
 ?>
   </nav>
 
   <!--
-  <potato-menu route="{{route}}" menu-items="{{menuItems}}"></potato-menu>
-  -->
+<potato-menu route="{{route}}" menu-items="{{menuItems}}"></potato-menu>
+-->
 
   <div class="container">
     <div>
