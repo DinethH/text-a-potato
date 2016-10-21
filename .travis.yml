@@ -1,4 +1,4 @@
 deploy:
   provider: gae
-  keyfile: "YOUR SERVICE ACCOUNT JSON FILE"
+  keyfile: "WordPress Playground-c01c421d65a5.json"
   project: "968262605021"
