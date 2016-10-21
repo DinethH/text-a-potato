@@ -1,0 +1,92 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<dom-module id="potato-contact">
+	<template>
+		<style>
+			:host {
+				display: block;
+				margin-top: 32px;
+			}
+			
+			.container {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+			}
+			
+			h3,
+			p {
+				font-family: Arial;
+			}
+			
+			h3 {
+				font-size: 30px;
+			}
+			
+			p {
+				font-size: 18px;
+			}
+			
+			.img-wrapper {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+			}
+			
+			@media (max-width: 767px) {
+				.container {
+					-webkit-box-orient: vertical;
+					-webkit-box-direction: reverse;
+					-ms-flex-direction: column-reverse;
+					flex-direction: column-reverse;
+				}
+				img {
+					width: 75%;
+				}
+			}
+		</style>
+
+		<br>
+		<br>
+		<br>
+
+		<div class="container">
+			<div style="text-align: center;">
+				<h3>
+					Contact
+				</h3>
+
+				<br>
+				<br>
+
+				<p>Please send all queries to </p>
+				<p> <a href="mailto:textapotato@gmail.com">textapotato@gmail.com</a> </p>
+				<br>
+				<br>
+
+				<p>If your query is regarding a potato order please include your phone <br> number and/or order number in the email.
+				</p>
+			</div>
+			<div class="img-wrapper">
+				<img src="../assets/2bae12_6e51e55b78ff4fada78eeca16900bd90.jpg" alt="">
+			</div>
+		</div>
+
+	</template>
+	<script>
+        Polymer({
+            is: 'potato-contact'
+        });
+    </script>
+</dom-module>

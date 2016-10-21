@@ -1,0 +1,311 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+
+
+<dom-module id="potato-menu">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+      ul li {
+        list-style-type: none;
+      }
+      
+      ul a {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+      
+      a {
+        text-decoration: none;
+      }
+      
+      a {
+        width: 100%;
+        color: rgba(52, 34, 22, 1);
+        -webkit-transition: all 0.33s ease-in-out;
+        transition: all 0.33s ease-in-out;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+      }
+      
+      li {
+        padding: 8px;
+        text-transform: uppercase;
+        font-size: 27px;
+        font-family: 'Amatic SC', cursive;
+        font-weight: 700;
+        width: 100%;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-transition: all 0.33s ease-in-out;
+        transition: all 0.33s ease-in-out;
+      }
+      
+      li:hover {
+        background-color: rgba(52, 34, 22, 1);
+        color: white;
+      }
+      
+      li.active {
+        background-color: rgba(52, 34, 22, 1);
+        color: white;
+      }
+      
+      .active+span {
+        content: "";
+        display: none;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid rgba(52, 34, 22, 1);
+        margin: 0 auto;
+      }
+      
+      .border-faker {
+        display: block;
+        border-bottom: 1px solid rgba(52, 34, 22, 1);
+        width: 50px;
+        margin-bottom: 10px;
+      }
+      
+      #toggleMenuButton {
+        -webkit-transition: all 0.33s ease-in-out 0.33s;
+        transition: all 0.33s ease-in-out 0.33s;
+      }
+      
+      nav {
+        z-index: 9999;
+      }
+      
+      @media (min-width: 768px) {
+        ul {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+        }
+        li {
+          //margin: 16px;
+          margin-bottom: 0;
+        }
+        a {
+          //margin: 8px;
+          margin-bottom: 0;
+        }
+        .active+span {
+          display: inline-block;
+          position: absolute;
+          margin-top: 11px;
+        }
+        nav {
+          border-bottom: 1px solid rgba(52, 34, 22, 1);
+          margin-top: 32px;
+        }
+        .close-button,
+        #toggleMenuButton {
+          display: none;
+        }
+        nav {
+          //display: block;
+          -webkit-transform: translateY(0);
+          transform: translateY(0);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        nav {
+          //display: none;
+          -webkit-transform: translateY(-500px);
+          transform: translateY(-500px);
+          -webkit-transition: -webkit-transform 0.33s ease-in-out;
+          transition: -webkit-transform 0.33s ease-in-out;
+          transition: transform 0.33s ease-in-out;
+          transition: transform 0.33s ease-in-out, -webkit-transform 0.33s ease-in-out;
+          width: 100%;
+          background: wheat;
+          -webkit-perspective-origin: top center;
+          perspective-origin: top center;
+          -webkit-perspective: 1000px;
+          perspective: 1000px;
+          -webkit-transform-origin: top center;
+          transform-origin: top center;
+          -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          position: absolute;
+        }
+        .active+span {
+          display: none;
+        }
+      }
+      
+      #toggleMenuButton {
+        position: absolute;
+        opacity: 1;
+        z-index: 999999;
+      }
+      
+      #closeMenuButton {
+        width: 100%;
+      }
+    </style>
+
+    <iron-media-query query="(max-width: 767px)" query-matches="{{isPhone}}"></iron-media-query>
+
+
+    <paper-icon-button id="toggleMenuButton" on-tap="showMenu" icon="menu" menuOpened="{{menuOpened}}"></paper-icon-button>
+    <nav id="nav">
+      <ul>
+        <a href="/">
+          <li id="textAPotato">Text-a-potato</li>
+          <span></span>
+        </a>
+        <a href="/please-explain">
+          <li id="pleaseExplain">Please explain</li>
+          <span></span>
+        </a>
+        <a href="/send-a-potato">
+          <li id="sendAPotato">Send a potato</li>
+          <span></span>
+        </a>
+        <a href="/examples">
+          <li id="examples">Examples</li>
+          <span></span>
+        </a>
+        <a href="/faqs">
+          <li id="faqs">FAQs</li>
+          <span></span>
+        </a>
+        <a href="/contact">
+          <li id="contact">Contact</li>
+          <span></span>
+        </a>
+        <a href="/shop">
+          <li id="shop">Shop</li>
+          <span></span>
+        </a>
+
+          <a class="close-button">
+            <paper-icon-button id="closeMenuButton" on-tap="closeMenu" icon="close"></paper-icon-button>
+          </a>
+      </ul>
+    </nav>
+
+
+  </template>
+
+
+  <script>
+    Polymer({
+
+      is: 'potato-menu',
+
+      properties: {
+        route: {
+          notify: true,
+          observer: '_routeChanged'
+        },
+        isPhone: {
+          observer: '_isPhoneChanged'
+        },
+        menuItems: {
+          notify: true,
+          observer: '_menuItemsChanged'
+        }
+      },
+      _menuItemsChanged: function() {
+        console.log(this.menuItems);
+      },
+      isPhoneChanged: function() {
+        if (!this.isPhone) {}
+      },
+      ready: function() {
+        //this.$.nav.style.display = "block";
+      },
+      showMenu: function() {
+        this.$.toggleMenuButton.style.opacity = "0";
+        //this.$.nav.style.display =  "block";
+        this.$.nav.style.position = "absolute";
+        this.$.nav.style.transform = "translateY(0) rotateX(0deg)";
+
+
+      },
+      closeMenu: function() {
+        this.$.toggleMenuButton.style.opacity = "1";
+        //this.$.nav.style.display =  "none";
+        this.$.nav.style.transform = "translateY(-500px) rotateX(-90deg)";
+      },
+      setActiveClass: function(activeLi) {
+        this.$.textAPotato.classList.remove("active");
+        this.$.pleaseExplain.classList.remove("active");
+        this.$.sendAPotato.classList.remove("active");
+        this.$.examples.classList.remove("active");
+        this.$.faqs.classList.remove("active");
+        this.$.contact.classList.remove("active");
+        this.$.shop.classList.remove("active");
+        activeLi.classList.add("active");
+
+        if (this.isPhone) {
+          this.closeMenu();
+        }
+
+
+      },
+      _routeChanged: function() {
+        var currentPage = this.route.path.split('/')[1];
+        switch (currentPage) {
+          case "":
+            this.setActiveClass(this.$.textAPotato);
+            break;
+          case "please-explain":
+            this.setActiveClass(this.$.pleaseExplain);
+            break;
+          case "send-a-potato":
+            this.setActiveClass(this.$.sendAPotato);
+            break;
+          case "examples":
+            this.setActiveClass(this.$.examples);
+            break;
+          case "faqs":
+            this.setActiveClass(this.$.faqs);
+            break;
+          case "contact":
+            this.setActiveClass(this.$.contact);
+            break;
+          case "shop":
+            break;
+          default:
+            //this.setActiveClass(this.$.textAPotato);
+            //
+        }
+      }
+
+    });
+  </script>
+</dom-module>
