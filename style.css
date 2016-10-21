@@ -228,7 +228,7 @@ li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 100%;
+    height: 56px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -237,6 +237,7 @@ li {
     align-items: center;
     -webkit-transition: all 0.33s ease-in-out;
     transition: all 0.33s ease-in-out;
+    flex-direction: column;
 }
 
 li:hover a {
